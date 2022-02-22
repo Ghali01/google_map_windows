@@ -6,9 +6,10 @@ import 'dart:collection' ;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_map_windows/web_middleware/init.dart';
 import 'package:webview_windows/webview_windows.dart';
 import 'dart:math' show Random,max,min;
+import 'package:html/parser.dart' show parse;
+
 
 part 'controller.dart';
 part 'elements/lat_lng.dart';
@@ -26,6 +27,7 @@ part 'elements/base_polygon.dart';
 part 'elements/polygon.dart';
 part 'elements/rectanlge.dart';
 part 'elements/criclcle.dart';
+part 'web_middleware/init.dart';
 /// The main widget in the pluginn
 class WindowsMap extends StatefulWidget {
   final WindowsMapController _mapController;
@@ -73,7 +75,7 @@ class _WindowsMapState extends State<WindowsMap> {
     await _controller.setPopupWindowPolicy(WebviewPopupWindowPolicy.deny);
 
     await _controller
-        .loadStringContent(await HTMLFile.load(widget._mapController.apiKey, {
+        .loadStringContent(_HTMLFile.load(widget._mapController.apiKey, {
       'zoom': widget.zoom,
       'center': widget.center.toJson(),
       'disabledoublecliczoom': !widget.doubleClickZoom,
