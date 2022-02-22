@@ -26,6 +26,7 @@ part 'elements/base_polygon.dart';
 part 'elements/polygon.dart';
 part 'elements/rectanlge.dart';
 part 'elements/criclcle.dart';
+/// The main widget in the pluginn
 class WindowsMap extends StatefulWidget {
   final WindowsMapController _mapController;
   int zoom, minZoom, maxZoom;

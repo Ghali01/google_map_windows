@@ -1,5 +1,5 @@
 part of WindowsMap;
-
+/// a circle draws on the map as [Polygon]
 class MapCircle extends _BasePolygon{
   LatLng _center;
   double _radius;
@@ -26,17 +26,22 @@ class MapCircle extends _BasePolygon{
     'center':_center.toMap(),
     'radius':_radius,
   }..addAll(super._toMap());
+
+  /// the center point of the circle.
   LatLng get center=>_center;
   set center(LatLng value){
     _center=value;
     _sendData('setCircleCenter', {'center':value.toMap()});
   }
+  /// the radius of the circle in mettrs.
   double get radius=>_radius;
   set radius(double value){
     _radius=value;
     _sendData('setCircleRadius',{'radius':value});
   }
+  ///an event run on usee edit the center point of the circle.
   set onCenterChanged(LatLngCallBack fun)=>_onCenterChanged=fun;
+  ///an event run on usee edit the radius of the circle.
   set onRadiusChanged(CallBackValue fun)=>_onRadiusChanged=fun;
   @override
   void _startListenOnEvents(){

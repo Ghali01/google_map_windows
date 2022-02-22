@@ -1,5 +1,6 @@
 part of WindowsMap;
-
+/// A class represent a point (x,y)
+/// uses with [Marker] class.
 class Point{
   final int x,y;
   Point(this.x,this.y);

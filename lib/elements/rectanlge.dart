@@ -1,5 +1,5 @@
 part of WindowsMap;
-
+/// a rectangle draws on the map as [Polygon]
 class MapRectanlge extends _BasePolygon{
   LatLngBounds _bounds;
   LatLngBoundsCallBack? _onBoundsChanged;
@@ -22,10 +22,12 @@ class MapRectanlge extends _BasePolygon{
     'bounds':_bounds.toMap(),
   }..addAll(super._toMap());
   LatLngBounds get bound=>_bounds;
+  /// the bounds of the rectangle.
   set bounds(LatLngBounds bounds){
     _bounds=bounds;
     _sendData('setRectangleBounds', {'bounds':bounds.toMap()});
   }
+  /// an event runs on the user edit the rectangle.
   set onBoundsChanged(LatLngBoundsCallBack fun)=>_onBoundsChanged=fun;
   @override
   void _startListenOnEvents(){

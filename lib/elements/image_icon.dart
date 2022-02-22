@@ -1,10 +1,18 @@
 part of WindowsMap;
-
+/// a class represent an icon useing image file.
 class MapImageIcon extends _BaseIcon {
   final String _url;
+  ///The position of the image within a sprite, if any.
+  ///By default, the origin is located at the top left corner of the image (0, 0).
   final Point? origin;
-  final Size? size, scaledSize;
-
+  ///The display size of the sprite or image. When using sprites, you must specify the sprite size.
+  ///If the size is not provided, it will be set when the image loads.
+  final Size? size;
+  ///The size of the entire image after scaling,
+  ///if any. Use this property to stretch/shrink an image or a sprite.
+  final Size? scaledSize;
+  /// icon from the internet
+  /// load the image from the given [url]
   MapImageIcon.fromUrl(
       {required String url,
       Point? anchor,
@@ -23,6 +31,8 @@ class MapImageIcon extends _BaseIcon {
         'size': size != null ? size!._toMap() : null,
         'scaledSize': scaledSize != null ? scaledSize!._toMap() : null,
       }..removeWhere((key, value) => value == null);
+
+  /// return an icon from the assets.
   static Future<MapImageIcon> iconFromAssets(
       {required String path,
       Point? anchor,

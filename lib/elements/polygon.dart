@@ -37,18 +37,18 @@ class Polygon extends _BasePolygon{
     _paths[index]=path;
     _sendSetPathSignal();
   }
-
+  ///the paths of the polygon. one polygon could have more than one path.
   List<List<LatLng>> get paths=>_paths;
   set paths(List<List<LatLng>> value){
     paths=value;
     _sendSetPathSignal();
   }
-  void addPointToPath(int index,LatLng point){
-    if(_paths.length>index) {
-      _paths[index].add(point);
-    }else{
-      _paths[index]=[point];
-    }
-    _sendSetPathSignal();
-  }
+  // void addPointToPath(int index,LatLng point){
+  //   if(_paths.length>index) {
+  //     _paths[index].add(point);
+  //   }else{
+  //     _paths.insert(index, [point]);
+  //   }
+  //   _sendSetPathSignal();
+  // }
 }

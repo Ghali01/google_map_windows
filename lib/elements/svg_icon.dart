@@ -1,6 +1,6 @@
 part of WindowsMap;
 
-
+/// class create a icon for svg code sets to the [path]
 class MapSvgIcon extends _BaseIcon {
   final String path;
   final Color fillColor, strokeColor;

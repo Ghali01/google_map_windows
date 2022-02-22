@@ -9,6 +9,7 @@ class Marker extends _DrawElement<LatLngCallBack>{
   late LatLng _position;
   late double _opacity;
   late String _title;
+  ///how the marker will display on the map.
   final MarkerAnimation animation;
   MarkerLabel? _label;
   _BaseIcon? _icon;
@@ -41,22 +42,26 @@ class Marker extends _DrawElement<LatLngCallBack>{
     _position=value;
     _sendData('setMarkerPosition', {'latLng':value.toMap()});
   }
-
+  /// the opacity of the marker.
   double get opacity=>_opacity;
   set opacity(double value){
     _opacity=value;
     _sendData('setMarkerOpacity', {'opacity':value});
   }
+  /// Rollover text. If provided, an accessibility text (e.g. for use with screen readers)
+  /// will be added to the marker with the provided value.
   String get title=>_title;
   set title(String value){
     _title=value;
     _sendData('setMarkerTitle', {'title':value});
   }
+  /// the label of the marker.
   MarkerLabel? get label=>_label;
   set label(MarkerLabel? value){
     _label=value;
     _sendData('setMarkerLabel', {'label':value!=null?value._toMap():null});
   }
+  /// the icon will  display on the marker postion
   _BaseIcon? get icon =>_icon;
   set icon (_BaseIcon? value){
     _icon=value;

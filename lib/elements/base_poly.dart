@@ -39,11 +39,14 @@ abstract class _BasePoly extends _DrawElement<LatLngCallBack> {
     }
     return list;
   }
+  /// if true the user can edit the polyline or polygon.
   bool get editable=>_editable;
   set editable(bool value){
     _editable=value;
     _sendData('setPloyEditable', {'editable':value});
   }
+  /// When true, edges of the polygon are interpreted as geodesic and will follow the curvature of the Earth.
+  /// When false, edges of the polygon are rendered as straight lines in screen space.
   bool get geodesic=>_geodesic;
   set geodesic(bool value){
     _geodesic=value;

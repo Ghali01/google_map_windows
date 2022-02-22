@@ -18,11 +18,13 @@ class Polyline extends _BasePoly{
     'path':_pathToMap(_path),
 
   }..addAll(super._toMap());
+  /// the path of the polyline.
   UnmodifiableListView<LatLng> get path=>UnmodifiableListView(_path);
   set path(List<LatLng> value){
     _path=value;
     _sendData('setPolylinePath',{'path':_pathToMap(value)});
   }
+  /// adding new point to the polyline.
   void addPointToPath(LatLng point){
     _path.add(point);
     _sendData('setPolylinePath',{'path':_pathToMap(_path)});

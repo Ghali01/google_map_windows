@@ -23,7 +23,10 @@ class _HomePageState extends State<HomePage> {
       eastController = TextEditingController(),
       southController = TextEditingController(),
       northController = TextEditingController();
+Polygon polygon=Polygon(paths: [[],]);
+List<LatLng> path=[];
  void btnClicked() async {
+   mapController.removePolygon(polygon);
   }
 
   @override
@@ -42,6 +45,13 @@ class _HomePageState extends State<HomePage> {
       eastController.text = bounds.east.toString();
       southController.text = bounds.south.toString();
       northController.text = bounds.north.toString();
+    };
+    mapController.onMapInitialed=(){
+      mapController.addPolygon(polygon);
+    };
+    mapController.onClick=(point){
+      path.add(point);
+      polygon.firstPath=path;
     };
 
     super.initState();

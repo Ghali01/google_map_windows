@@ -1,6 +1,6 @@
 part of WindowsMap;
 
-
+/// a text display on the [Marker]
 class MarkerLabel{
   final String text;
   final Color color;
@@ -14,9 +14,8 @@ class MarkerLabel{
 });
    Map _toMap()=>{
      'text':text,
-     'color':'rgba(${color.red},${color.green},${color.blue},${color.opacity})',
+     'color':color._rgba,
       'fontSize':'${fontSize}px',
      'fontWeight':(fontWeight.index*100).toString()
    };
-   String _toJson()=>jsonEncode(_toMap());
 }
