@@ -21,6 +21,7 @@ you can add the map to your widget tree by follwing code
 
 
 ###1- crate map controller 
+
 ```
     WindowsMapController mapController = WindowsMapController();
     mapController.initMap();
@@ -28,12 +29,14 @@ you can add the map to your widget tree by follwing code
 
 
 ###2- set your api key (optinal)
+
 ``` 
     mapController.apiKey = YOUR_API_KEY';
 ```
 
 
 ###3- add to widget tree
+
 ```
     SizedBox(
         width: 900,
