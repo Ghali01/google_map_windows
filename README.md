@@ -10,7 +10,7 @@ we recommend to read the install requirements of [webview_windows](https://pub.d
 
 ### porblem you may face with webview_windows and nuget
 
-some times the source of nuget maybe uncorret you set it from cmd by following next command **be sure you add nuget to system varibles**
+some times the source of nuget maybe uncorret you can set it from cmd by following next command **be sure you add nuget to system varibles**
 
 ```bash
 nuget source Update -Name nuget.org -Source https://api.nuget.org/v3/index.json
@@ -25,7 +25,7 @@ so you can use javascript api key by follwing [this guide](https://developers.go
 
 you can add the map to your widget tree by follwing code.
 
-### 1- crate map controller
+### 1- create map controller
 
 ``` dart
     WindowsMapController mapController = WindowsMapController();
@@ -51,11 +51,11 @@ you can add the map to your widget tree by follwing code.
           LatLng(lat: 33.43446356719302, lng: 36.25603641463645),
 
         ),
-  ),main.html
+  )
 
 ```
 
-### 3- add draw element
+### 4- add draw element
 
 you can add [Markes](https://pub.dev/documentation/google_map_windows/latest/WindowsMap/Marker-class.html), [Polylnes](https://pub.dev/documentation/google_map_windows/latest/WindowsMap/Polyline-class.html) and [Polygons](https://pub.dev/documentation/google_map_windows/latest/WindowsMap/Polygon-class.html) by the map controller.
 
@@ -119,7 +119,7 @@ removeing a ploygon
   mapController.removePolygon(polygon);
 ```
 
-### 4- events system
+### 5- events system
 
 you can add a new event listenr with following syntex
 

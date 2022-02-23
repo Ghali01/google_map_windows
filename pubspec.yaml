@@ -3,7 +3,7 @@ description: A plugin for google maps on wondows
 version: 0.0.1
 homepage: https://pub.dev/packages/google_map_windows
 repository: https://github.com/Ghali01/google_map_windows
-
+issue_tracker: https://github.com/Ghali01/google_map_windows/issues
 environment:
   sdk: ">=2.16.0 <3.0.0"
   flutter: ">=2.5.0"
