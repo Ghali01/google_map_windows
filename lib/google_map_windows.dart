@@ -75,7 +75,7 @@ class _WindowsMapState extends State<WindowsMap> {
     await _controller.setPopupWindowPolicy(WebviewPopupWindowPolicy.deny);
 
     await _controller
-        .loadStringContent(_HTMLFile.load(widget._mapController.apiKey, {
+        .loadStringContent(await _HTMLFile.loadFresh(widget._mapController.apiKey, {
       'zoom': widget.zoom,
       'center': widget.center.toJson(),
       'disabledoublecliczoom': !widget.doubleClickZoom,

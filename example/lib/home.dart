@@ -10,7 +10,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late WindowsMapController mapController;
-  int zoom = 12;
+  int zoom = 17;
 
   //31.776187750566574, 35.23573728711054
   final mkaaLocation = LatLng(lat: 21.422817474739336, lng: 39.826170262307336),
@@ -23,10 +23,14 @@ class _HomePageState extends State<HomePage> {
       eastController = TextEditingController(),
       southController = TextEditingController(),
       northController = TextEditingController();
-Polygon polygon=Polygon(paths: [[],]);
-List<LatLng> path=[];
- void btnClicked() async {
-   mapController.removePolygon(polygon);
+  List<LatLng> alAqsaPP = [
+    LatLng.fromMap({"lat": 31.77956412562312, "lng": 35.23701938301966}),
+    LatLng.fromMap({"lat": 31.779276833355343, "lng": 35.23453029305384}),
+    LatLng.fromMap({"lat": 31.77573126753284, "lng": 35.234828062147656}),
+    LatLng.fromMap({"lat": 31.7762192265448, "lng": 35.23731178769545})
+  ];
+  void btnClicked() async {
+    print(alAqsaPP);
   }
 
   @override
@@ -46,16 +50,20 @@ List<LatLng> path=[];
       southController.text = bounds.south.toString();
       northController.text = bounds.north.toString();
     };
-    mapController.onMapInitialed=(){
+    mapController.onMapInitialed = () {
+      Marker marker =
+          Marker(position: al_QudsLocation, title: 'msjd al-aqsa almubark');
+      mapController.addMarker(marker);
+      Polygon polygon = Polygon(
+          paths: [
+            alAqsaPP,
+          ],
+          fillColor: Colors.blue.shade400,
+          strokeColor: Colors.red.shade200,
+          fillOpacity: .4);
       mapController.addPolygon(polygon);
     };
-    mapController.onClick=(point){
-      path.add(point);
-      polygon.firstPath=path;
-    };
-
     super.initState();
-
   }
 
   void zoomIn() async {
@@ -97,15 +105,12 @@ List<LatLng> path=[];
           Column(
             children: [
               SizedBox(
-                    width: 900,
-                    height: 500,
-                    child: WindowsMap(
-                      controller: mapController,
-                      zoom: zoom,
-                      center:
-                      LatLng(lat: 33.43446356719302, lng: 36.25603641463645),
-
-                    ),
+                width: 900,
+                height: 500,
+                child: WindowsMap(
+                    controller: mapController,
+                    zoom: zoom,
+                    center: al_QudsLocation),
               ),
               ElevatedButton(
                   onPressed: btnClicked, child: const Text('Click me')),
