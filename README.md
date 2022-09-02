@@ -1,29 +1,38 @@
-# google_map_windows
+# Google  Maps for Flutter Windows OS
 
-a plugin for google map on windows OS
+[![pub package](https://img.shields.io/pub/v/google_map_windows.svg)](https://pub.dev/packages/google_map_windows)
 
-## Before the  installing
+A flutter plugin that provides [Google Maps](https://developers.google.com/maps/) widget for Windows OS app.
 
-this plugin depends on Javascript google map api and [webview_windows](https://pub.dev/packages/webview_windows)
+## Usage
+
+To use this plugin, add `google_maps_windows` as a [dependency in your pubspec.yaml file](https://flutter.dev/docs/development/platform-integration/platform-channels).
+
+## Before the installing
+
+This plugin depends on Javascript google map api and [webview_windows](https://pub.dev/packages/webview_windows)
 which depends on [Microsoft Edge WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2/)
 we recommend to read the install requirements of [webview_windows](https://pub.dev/packages/webview_windows#development-platform-requirements)
 
-### porblem you may face with webview_windows and nuget
+### Problem you may face with webview_windows and nuget
 
-some times the source of nuget maybe uncorret you can set it from cmd by following next command **be sure you add nuget to system varibles**
+Sometimes the source of nuget maybe incorrect, you can set it from cmd by following this command. **Ensure you have added nuget to system varibles**
 
 ```bash
 nuget source Update -Name nuget.org -Source https://api.nuget.org/v3/index.json
 ```
 
-## get the api key (optinal in development mode)
+## Get the api key (optional in development mode)
 
-as we said this plugin built on google map javascript api
+As it was earlier stated, this plugin is built on google map javascript api
 so you can use javascript api key by follwing [this guide](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
-## how to use
+## How to use
 
-you can add the map to your widget tree by follwing code.
+Add a `WindowsMap` widget to your widget tree.
+
+The map view can be controlled with the `WindowsMapController` that is passed to
+the `WindowsMap`'s `onMapInitialed` callback.
 
 ### 1- create map controller
 
@@ -32,10 +41,10 @@ you can add the map to your widget tree by follwing code.
     mapController.initMap();
 ```
 
-### 2- set your api key (optinal)
+### 2- set your api key (optional in development mode)
 
 ``` dart
-    mapController.apiKey = YOUR_API_KEY';
+    mapController.apiKey = 'YOUR_API_KEY';
 ```
 
 ### 3- add to widget tree
@@ -57,9 +66,9 @@ you can add the map to your widget tree by follwing code.
 
 ### 4- add draw element
 
-you can add [Markes](https://pub.dev/documentation/google_map_windows/latest/WindowsMap/Marker-class.html), [Polylnes](https://pub.dev/documentation/google_map_windows/latest/WindowsMap/Polyline-class.html) and [Polygons](https://pub.dev/documentation/google_map_windows/latest/WindowsMap/Polygon-class.html) by the map controller.
+You can add [Markers](https://pub.dev/documentation/google_map_windows/latest/WindowsMap/Marker-class.html), [Polylines](https://pub.dev/documentation/google_map_windows/latest/WindowsMap/Polyline-class.html) and [Polygons](https://pub.dev/documentation/google_map_windows/latest/WindowsMap/Polygon-class.html) by the map controller.
 
-#### markers
+#### Markers
 
 adding a Marker
 
@@ -75,7 +84,7 @@ removing a marker
   mapController.removeMarker(marker);
 ```
 
-#### polylines
+#### Polylines
 
 adding a polyline
 
@@ -90,7 +99,7 @@ removing a polyline
   mapController.removePolyline(polyline);
 ```
 
-#### polygons
+#### Polygons
 
 adding a ploygon
 
@@ -119,9 +128,9 @@ removeing a ploygon
   mapController.removePolygon(polygon);
 ```
 
-### 5- events system
+### 5- Events system
 
-you can add a new event listenr with following syntex
+You can add a new event listener with following syntax
 
 for map
 
